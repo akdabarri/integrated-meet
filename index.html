@@ -35,38 +35,32 @@
             margin-top: 15px;
             border-radius: 4px;
         }
+        
+        /* THE MAGIC SCROLL BOX */
         .scroll-box {
             background-color: #ECF0F1;
             border: 2px dashed #7F8C8D;
             padding: 20px;
-            max-height: 400px;
+            max-height: 400px; /* Batasan tinggi untuk scroll vertical */
             overflow-y: auto;
-            font-family: 'Times New Roman', serif;
+            font-family: 'Inter', sans-serif;
             font-size: 22px;
             line-height: 1.5;
             color: #2C3E50;
+            margin-top: 15px;
         }
+
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         
-        .code-block {
-            background: #f4f4f4;
-            border: 3px solid #000;
-            padding: 20px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-align: left;
-            white-space: pre-wrap;
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb { background: #BDC3C7; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #7F8C8D; }
+        /* CUSTOM SCROLLBAR DESIGN */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; border: 1px solid #ccc;}
+        ::-webkit-scrollbar-thumb { background: #2C3E50; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #E74C3C; }
     </style>
 </head>
 <body>
@@ -78,7 +72,7 @@
                 <h1>THE ACQUISITION ENGINE</h1>
                 <h3 style="color: #4A4A4A;">Today's Meeting: Cold Emailing & In-Room Research</h3>
                 <p>Strategi Menjemput & Memproduksi Naskah Jurnal INTEGRATED</p>
-                <p style="font-size: 20px; margin-top: 50px;">Presented by M. Akda Barri </p>
+                <p style="font-size: 20px; margin-top: 50px;">Presented by M. Akda Fathul Barri</p>
             </section>
 
             <!-- ===================== FASE 1: SCOPE ===================== -->
@@ -87,7 +81,7 @@
                 <div class="box">
                     <p style="font-size: 24px;">Sebelum menjemput naskah, pahami identitas <strong>INTEGRATED (Information Technology and Vocational Education)</strong>:</p>
                     <ul style="font-size: 24px;">
-                        <li><strong>Pendidikan:</strong> Vocational Education / Pendidikan Vokasi.</li>
+                        <li><strong>Pendidikan:</strong> Vocational Education / Pendidikan Vokasi (SMK/Politeknik).</li>
                         <li><strong>Sistem Cerdas:</strong> Artificial Intelligence, Machine Learning, Data Mining.</li>
                         <li><strong>Visual & Grafis:</strong> Computer Vision, Computer Graphics, Image Processing.</li>
                         <li><strong>Infrastruktur:</strong> Information Systems, Mobile Computing.</li>
@@ -96,34 +90,46 @@
                 </div>
             </section>
 
-            <!-- ===================== FASE 2: DATA MINING (THE SMOOTH FLOW) ===================== -->
+            <!-- ===================== FASE 2: DATA MINING (SCROLLABLE & CLEANER) ===================== -->
             <section>
-                <h2>Data Mining: Memburu Sang Penulis</h2>
-                <p style="font-size: 24px;">Jangan menyebar email membabi buta. Targetkan penulis yang <strong>aktif terbit dalam 2 tahun terakhir</strong>.</p>
-                <div class="grid-2">
-                    <div style="font-size: 20px;">
-                        <ul style="list-style-type: decimal;">
-                            <li>Buka <strong>Scopus</strong> atau <strong>Publish or Perish</strong>.</li>
-                            <li>Gunakan Keyword: <br><code style="background:#eee; padding:5px;">("Vocational Education" OR "Computer Science Education") AND ("Artificial Intelligence")</code></li>
-                            <li>Filter Publikasi: <strong>2024 - 2026</strong>.</li>
-                            <li>Export hasilnya menjadi file <strong>.CSV</strong>.</li>
-                        </ul>
-                    </div>
-                    <div class="box" style="margin-top: 0; border-left-color: #27AE60;">
-                        <h4 class="accent-green" style="font-size: 20px;">Google Sheets Cleaning:</h4>
-                        <p style="font-size: 18px;">Buka .CSV di Sheets. Hapus kolom yang tidak perlu. Sisakan hanya 3 Kolom Sakti ini:</p>
-                        <p style="font-size: 18px; font-weight: bold;">[ Nama | Email | Judul_Artikel ]</p>
-                        <p style="font-size: 16px; color:#7f8c8d;">(Contoh Nama: Ubah "Widodo, Suprih" menjadi "Bapak/Ibu Suprih Widodo")</p>
+                <h2>Scopus Mining: 10 Boolean Arsenal</h2>
+                <p style="font-size: 22px;">Ini adalah panduan lengkap *(scroll ke bawah)* untuk menarik data (Scraping) penulis dari Scopus menggunakan Publish or Perish (PoP) atau Scopus.com.</p>
+                
+                <div class="scroll-box" style="background-color: #fff; border-color: #27AE60;">
+                    <h4 class="accent-green" style="font-size: 24px;">A. Instruksi Eksekusi Data:</h4>
+                    <ol style="font-size: 20px;">
+                        <li>Buka Scopus / PoP. Filter tahun publikasi ke <strong>2024 - 2026</strong>.</li>
+                        <li>Pilih <strong>SATU</strong> dari 10 rumus Boolean di bawah ini lalu salin ke kolom pencarian (Title/Abstract/Keyword).</li>
+                        <li>Klik *Export* (Format <strong>.CSV</strong>).</li>
+                        <li>Buka .CSV di Google Sheets. <strong>Hapus semua kolom</strong>, sisakan HANYA 3 kolom: [ <strong>Nama</strong> | <strong>Email</strong> | <strong>Judul_Artikel</strong> ].</li>
+                        <li>Bersihkan nama penulis (Ubah "Sari, Ayu Permata" menjadi "Bapak/Ibu Ayu Permata Sari").</li>
+                    </ol>
+
+                    <hr style="margin: 20px 0;">
+
+                    <h4 class="accent-green" style="font-size: 24px;">B. Pilih 1 Rumus Boolean (Sesuai Scope INTEGRATED):</h4>
+                    <div style="font-family: monospace; font-size: 18px; line-height: 1.8; color: #E74C3C; font-weight: bold; background-color: #f9f9f9; padding: 15px; border-radius: 5px;">
+                        1. ("Vocational Education" OR "Polytechnic") AND ("Artificial Intelligence" OR "Generative AI")<br><br>
+                        2. ("Engineering Education" OR "Computer Science Education") AND ("Machine Learning" OR "Deep Learning")<br><br>
+                        3. ("Vocational Training") AND ("Virtual Reality" OR "Augmented Reality" OR "XR")<br><br>
+                        4. ("Vocational High School") AND ("Internet of Things" OR "IoT" OR "Smart Classroom")<br><br>
+                        5. ("Information Technology Education") AND ("Gamification" OR "Serious Games" OR "Game-Based Learning")<br><br>
+                        6. ("Computer Science Education") AND ("Data Mining" OR "Educational Data Mining" OR "Predictive Analytics")<br><br>
+                        7. ("Vocational Education") AND ("Computer Vision" OR "Image Processing")<br><br>
+                        8. ("Engineering Education") AND ("Learning Analytics" OR "Dashboard")<br><br>
+                        9. ("Vocational") AND ("Cybersecurity" OR "Information Security") AND "Education"<br><br>
+                        10. ("Computer Science Education") AND ("Mobile Learning" OR "Mobile Computing" OR "M-Learning")
                     </div>
                 </div>
             </section>
 
-            <!-- ===================== FASE 3: COLD EMAIL ===================== -->
+            <!-- ===================== FASE 3: COLD EMAIL (SCROLLABLE) ===================== -->
             <section>
-                <h2>The Flattering Pitch (Template Undangan)</h2>
-                <p style="font-size: 22px;">Ini bukan spam, ini adalah <em>"Personalized Invitation"</em>. Penulis hebat suka karyanya diakui. Salin teks ini ke Draft Gmail INTEGRATED.</p>
+                <h2>The Flattering Pitch (Template Email)</h2>
+                <p style="font-size: 22px;">Salin teks di dalam kotak ini ke Draft Gmail INTEGRATED. Kita puji artikel mereka agar mereka mau <em>submit</em> ke jurnal kita.</p>
                 <div class="scroll-box" style="background-color: #fff; font-size: 18px; border-color: #2980B9;">
                     <p><strong>Subjek:</strong> Invitation to Submit: Jurnal INTEGRATED (Information Technology & Vocational Education)</p>
+                    <hr>
                     <p>Dear <strong>{{Nama}}</strong>,</p>
                     <p>Following your impressive paper <em>"{{Judul_Artikel}}"</em> published recently, we would like to formally invite you to submit your next manuscript or conceptual framework to <strong>INTEGRATED</strong>.</p>
                     <p>INTEGRATED is a peer-reviewed journal dedicated to advancing research in Vocational Education, Artificial Intelligence, and Computer Science Education. Given your recognized expertise and the alignment of your previous work with our core scope, we are convinced your future research would represent a strong addition to our upcoming volume.</p>
@@ -133,7 +139,7 @@
                     Jurnal INTEGRATED (PSTI UPI)</p>
                     <p style="font-size: 12px; color: #7f8c8d; margin-top: 30px;">Unsubscribe · Editorial Office, Universitas Pendidikan Indonesia</p>
                 </div>
-                <p style="font-size: 20px; color: #E74C3C; font-weight: bold; margin-top: 10px;">Lalu gunakan ekstensi YAMM (Yet Another Mail Merge) di Sheets untuk mengirim massal ke 50 orang sekaligus!</p>
+                <p style="font-size: 20px; color: #E74C3C; font-weight: bold; margin-top: 10px;">Lalu gunakan ekstensi YAMM (Yet Another Mail Merge) di Sheets untuk mengirim massal ke 50 dosen sekaligus dengan 1 klik!</p>
             </section>
 
             <!-- ===================== FASE 4: PLAN B (THE IN-ROOM RESEARCH) ===================== -->
@@ -144,54 +150,36 @@
                 <p style="font-size: 24px;">Tidak harus terjun ke sekolah. Tidak harus sebar kuesioner.</p>
             </section>
 
-            <!-- ===================== IDE PENELITIAN SEKUNDER 1 ===================== -->
+            <!-- ===================== IDE PENELITIAN SEKUNDER ===================== -->
             <section>
-                <h2>Plan B-1: Evaluasi Heuristik (HCI)</h2>
-                <p style="font-size: 24px;">Cocok untuk anak IT. Riset ini murni menguji UI/UX aplikasi edukasi/vokasi yang sudah ada di PlayStore menggunakan metode pakar.</p>
-                <div class="box">
-                    <h4 class="accent-blue" style="font-size: 22px;">Cara Kerja (Full Depan Laptop):</h4>
-                    <ul style="font-size: 22px;">
-                        <li><strong>Metode:</strong> Nielsen’s 10 Heuristics for User Interface Design.</li>
-                        <li><strong>Subjek (P):</strong> Pilih 3 Aplikasi Belajar Koding / Vokasi di PlayStore (misal: Sololearn, Mimo, Dicoding App).</li>
-                        <li><strong>Intervensi (I):</strong> Mahasiswa bertindak sebagai "Evaluator Ahli". Cari pelanggaran desain (misal: tombol tidak konsisten, navigasi rumit).</li>
-                        <li><strong>Outcome (O):</strong> Skoring <em>Severity Rating</em> (0=Tidak Masalah, 4=Bencana UI).</li>
-                        <li><strong>Judul Reputable:</strong> "Evaluasi Heuristik pada Aplikasi Mobile Programming: Analisis Komparatif Pelanggaran UI/UX."</li>
+                <h2>Plan B: 3 Riset Eksperimen Meja (In-Room)</h2>
+                <p style="font-size: 22px;">Jika kelompok kalian buntu, pilih salah satu dari metode di bawah ini. Murni dikerjakan depan laptop namun sangat bereputasi (SINTA 2/Q3).</p>
+                
+                <div class="scroll-box" style="background-color: #fff; font-size: 20px; border-color: #E74C3C;">
+                    
+                    <h4 class="accent-red" style="font-size: 22px;">1. Evaluasi Heuristik (UI/UX)</h4>
+                    <ul>
+                        <li><strong>Konsep:</strong> Menguji antarmuka aplikasi Vokasi/Pendidikan yang ada di PlayStore (misal: Ruangguru, Dicoding).</li>
+                        <li><strong>Metode:</strong> Mahasiswa bertindak sebagai "Pakar". Evaluasi UI menggunakan 10 Nielsen Heuristics. Hitung <em>Severity Rating</em> (Tingkat Keparahan).</li>
+                        <li><strong>Target Jurnal:</strong> "Evaluasi Heuristik pada Aplikasi Mobile Programming: Analisis Komparatif Pelanggaran UI/UX."</li>
                     </ul>
-                </div>
-            </section>
+                    <hr style="margin: 20px 0;">
 
-            <!-- ===================== IDE PENELITIAN SEKUNDER 2 ===================== -->
-            <section>
-                <h2>Plan B-2: Analisis Sentimen (Data Mining)</h2>
-                <p style="font-size: 24px;">Sangat masuk ke <em>Scope</em> "Sistem Cerdas". Kita ubah curhatan netizen menjadi data kuantitatif menggunakan <em>Tools</em>.</p>
-                <div class="grid-2">
-                    <div style="font-size: 20px;">
-                        <ul style="list-style-type: decimal;">
-                            <li><strong>Alat (Tools):</strong> Google Colab + Python (Library VADER atau TextBlob), atau Orange Data Mining (No Code).</li>
-                            <li><strong>Sumber Data:</strong> <em>Scraping</em> 1.000 komentar YouTube atau Ulasan PlayStore tentang Aplikasi "Ruangguru" atau "Kurikulum Merdeka".</li>
-                            <li><strong>Analisis:</strong> Klasifikasi otomatis ke sentimen Positif, Netral, Negatif. Ekstrak kata kunci yang paling banyak muncul (WordCloud).</li>
-                        </ul>
-                    </div>
-                    <div class="box" style="margin-top: 0; border-left-color: #F39C12;">
-                        <h4 style="color: #F39C12; font-size: 20px;">Contoh Judul Q3/SINTA 2:</h4>
-                        <p style="font-size: 18px; font-weight: bold;">"Analisis Sentimen Pengguna terhadap Aplikasi Pembelajaran Vokasi Menggunakan Algoritma Naive Bayes pada Ulasan Google Play."</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===================== IDE PENELITIAN SEKUNDER 3 ===================== -->
-            <section>
-                <h2>Plan B-3: Analisis Komparatif (LLM vs Human)</h2>
-                <p style="font-size: 24px;">Riset eksperimen murni dari dalam kamar yang sedang tren di dunia akademik saat ini.</p>
-                <div class="box">
-                    <h4 class="accent-green" style="font-size: 22px;">Cara Kerja (Eksperimen AI):</h4>
-                    <ul style="font-size: 22px;">
-                        <li><strong>Metode:</strong> Uji Turing Sederhana / Analisis Kinerja.</li>
-                        <li><strong>Subjek:</strong> Kumpulkan 20 Soal Ujian (UAS) mata kuliah Jaringan Komputer/Pemrograman.</li>
-                        <li><strong>Intervensi:</strong> Berikan soal tersebut ke <strong>ChatGPT-4</strong>, <strong>Claude 3.5</strong>, dan <strong>Gemini Pro</strong>.</li>
-                        <li><strong>Outcome:</strong> Bandingkan akurasi jawaban mereka menggunakan rubrik penilaian dosen. Hitung mana AI yang paling sering "berhalusinasi" menjawab soal koding.</li>
-                        <li><strong>Judul Reputable:</strong> "Analisis Komparatif Akurasi Generative AI (ChatGPT, Claude, Gemini) dalam Menyelesaikan Soal Logika Pemrograman Vokasi."</li>
+                    <h4 class="accent-red" style="font-size: 22px;">2. Analisis Sentimen (Data Mining)</h4>
+                    <ul>
+                        <li><strong>Konsep:</strong> Mengubah opini netizen menjadi data matematis (Pas dengan scope Sistem Cerdas).</li>
+                        <li><strong>Metode:</strong> Scraping 1.000 ulasan PlayStore/YouTube. Gunakan Google Colab (Python) atau aplikasi "Orange" (tanpa ngoding) untuk klasifikasi Positif/Negatif.</li>
+                        <li><strong>Target Jurnal:</strong> "Analisis Sentimen Pengguna terhadap Aplikasi Pembelajaran Kurikulum Merdeka Menggunakan Algoritma Naive Bayes."</li>
                     </ul>
+                    <hr style="margin: 20px 0;">
+
+                    <h4 class="accent-red" style="font-size: 22px;">3. Uji Turing Akademik (Eksperimen AI)</h4>
+                    <ul>
+                        <li><strong>Konsep:</strong> Mengadu kecerdasan mesin (LLM) dalam menjawab soal-soal perkuliahan (Pas dengan scope AI).</li>
+                        <li><strong>Metode:</strong> Siapkan 20 soal UAS mata kuliah Pemrograman. Ketikkan soal tersebut ke ChatGPT, Claude, dan Gemini. Nilai keakuratan ketiganya menggunakan rubrik dosen.</li>
+                        <li><strong>Target Jurnal:</strong> "Analisis Komparatif Akurasi Generative AI dalam Menyelesaikan Soal Logika Algoritma Pendidikan Vokasi."</li>
+                    </ul>
+
                 </div>
             </section>
 
@@ -201,8 +189,8 @@
                 <div class="box" style="border-left-color: #2C3E50;">
                     <p style="font-size: 24px; text-align: left;">Pilih jalur kelompok kalian hari ini:</p>
                     <ol style="font-size: 22px; text-align: left;">
-                        <li><strong>TIM AKUISISI:</strong> Lakukan pencarian nama dosen di Scopus/PoP. Simpan di Excel. <em>Setup</em> draft email "Jemput Bola" dan <em>install</em> YAMM.</li>
-                        <li><strong>TIM PABRIK NASKAH:</strong> Pilih metode "In-Room Research" (Heuristik, Sentimen, atau Eksperimen AI). Buat <em>Outline</em> (Bab 1, 2, 3) di Google Docs sekarang!</li>
+                        <li><strong>TIM AKUISISI:</strong> Lakukan Scraping data di Scopus. Bersihkan datanya. Setup <em>Flattering Pitch</em> di Gmail & Install YAMM.</li>
+                        <li><strong>TIM PABRIK NASKAH:</strong> Pilih metode "In-Room Research" (Heuristik / Sentimen / Eksperimen AI). Buat <em>Outline</em> (Bab 1, 2, 3) di Google Docs sekarang!</li>
                     </ol>
                 </div>
             </section>
